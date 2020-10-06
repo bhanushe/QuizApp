@@ -94,10 +94,10 @@ public class QuizQuestionsActivity extends AppCompatActivity implements View.OnC
         ((TextView)findViewById(R.id.tv_progress)).setText(currentProgress);
 
         List<Answer> options = currentQuestion.getOptions();
-        TextView optionOne = (TextView)findViewById(R.id.tv_option_one);
-        TextView optionTwo = (TextView)findViewById(R.id.tv_option_two);
-        TextView optionThree = (TextView)findViewById(R.id.tv_option_three);
-        TextView optionFour = (TextView)findViewById(R.id.tv_option_four);
+        TextView optionOne = findViewById(R.id.tv_option_one);
+        TextView optionTwo = findViewById(R.id.tv_option_two);
+        TextView optionThree = findViewById(R.id.tv_option_three);
+        TextView optionFour = findViewById(R.id.tv_option_four);
 
         setSpecifiedOptionForCurrentQuestion(options.get(0), optionOne);
         setSpecifiedOptionForCurrentQuestion(options.get(1), optionTwo);
@@ -110,7 +110,7 @@ public class QuizQuestionsActivity extends AppCompatActivity implements View.OnC
         correctAnswerOption = null;
         showNextQuestion = false;
         validateAnswer = false;
-        btnSubmit.setText("Submit");
+        btnSubmit.setText(R.string.submit);
     }
 
     private void setSpecifiedOptionForCurrentQuestion(Answer answerOption, TextView textviewOption) {
@@ -184,9 +184,9 @@ public class QuizQuestionsActivity extends AppCompatActivity implements View.OnC
         showNextQuestion = true;
         if(currentProgressPercent == 100 ){
             showNextQuestion = false;
-            btnSubmit.setText("Finish Quiz");
+            btnSubmit.setText(R.string.finish_quiz);
         }else{
-            btnSubmit.setText("Next Question");
+            btnSubmit.setText(R.string.next_question);
         }
         if (selectedAnswerOption == correctAnswerOption){
             countOfCorrectAnswerInCurrentSession++;
